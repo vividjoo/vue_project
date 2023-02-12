@@ -1,19 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <todo-header />
+    <TodoInput />
+    <todo-list />
+    <todo-footer-z />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import TodoHeader from "./components/TodoHeader.vue";
+import TodoInputVue from "./components/TodoInput.vue";
+import TodoListVue from "./components/TodoList.vue";
+import TodoFooters from "./components/TodoFooter.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    TodoHeader: TodoHeader,
+    TodoInput: TodoInputVue,
+    TodoList: TodoListVue,
+    TodoFooterZ: TodoFooters,
+  },
+};
 </script>
 
 <style>
@@ -24,5 +33,19 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+body {
+  text-align: text;
+  background-color: #f6f6f8;
+}
+input {
+  border-style: groove;
+  width: 200px;
+}
+button {
+  border-style: groove;
+}
+.shadow {
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.03);
 }
 </style>
