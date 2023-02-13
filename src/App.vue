@@ -2,13 +2,12 @@
   <div id="app">
     <todo-header />
     <TodoInput />
-    <todo-list />
+    <todo-list :todoItems="todoItems" />
     <todo-footer-z />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import TodoHeader from "./components/TodoHeader.vue";
 import TodoInputVue from "./components/TodoInput.vue";
 import TodoListVue from "./components/TodoList.vue";
@@ -16,6 +15,11 @@ import TodoFooters from "./components/TodoFooter.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      todoItems: [],
+    };
+  },
   components: {
     TodoHeader: TodoHeader,
     TodoInput: TodoInputVue,
