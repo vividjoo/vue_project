@@ -9,7 +9,8 @@ module.exports = {
     'plugin:vue/vue3-strongly-recommended', // Lv2
     // 'plugin:vue/vue3-recommended', // Lv3
     // js
-    'eslint:recommended'
+    'eslint:recommended', 
+    'plugin:react/recommended'
   ],
   parserOptions: {
     parser: 'babel-eslint'
@@ -21,6 +22,7 @@ module.exports = {
     "generator-star-spacing": 0,
     "quotes": ['off', 'single'],
     // allow debugger during development
-    "no-debugger": process.env.NODE_ENV === 'production' ? 2 : 0
+    "no-debugger": process.env.NODE_ENV === 'production' ? 2 : 0,
+    "no-unused-vars": "off"
   }
 }
