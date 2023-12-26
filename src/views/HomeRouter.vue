@@ -1,5 +1,10 @@
 <template>
   <div class="wrap">
+    <div class="view_modal" v-if="true">
+      <div class="modal_inner">
+        <button class="close_btn" @click="closeBtn()">확인</button>
+      </div>
+    </div>
     <!-- 첫번째 START -->
     <div class="wrap1">
       <fieldset class="wrap1_in">
@@ -45,7 +50,7 @@
           <path
             d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
           />
-          <modal-router v-if="true"></modal-router>
+          <!-- <modal-router @click="modal()" :opening="open"></modal-router> -->
         </svg>
       </button>
     </div>
@@ -66,6 +71,7 @@ export default {
       question1: ["첫번째", "두번째", "세번째", "네번째"],
       checked: [false, false, false],
       showing: false,
+      open: false,
     };
   },
   methods: {
@@ -95,7 +101,26 @@ export default {
       });
     },
     modal() {
-      console.log("fdsa");
+      document.querySelector(".view_modal").style.display = "flex";
+
+      const param = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: {
+          hi: "312",
+        },
+      };
+      fetch("/api/test", param)
+        .then((res) => {
+          console.log("res => ", res);
+        })
+        .catch((err) => console.log(err.message));
+    },
+    closeBtn() {
+      document.querySelector(".view_modal").style.display = "none";
+      console.log("fdas");
     },
   },
 };
@@ -203,5 +228,23 @@ span {
 [type="radio"]:focus-visible {
   outline: 2px dotted tomato;
   outline-offset: 2px;
+}
+
+.view_modal {
+  z-index: 100;
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  font-size: 5rem;
+}
+.modal_inner {
+  border: 2px solid black;
+  border-radius: 10%;
+  background: lightgray;
 }
 </style>
