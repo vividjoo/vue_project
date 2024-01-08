@@ -1,9 +1,13 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">About</router-link> |
+    <router-link to="/user">List</router-link> |
+    <router-link to="/user/findById">userSelect</router-link> |
+    <router-link to="/user/editById">UserUpdate</router-link> |
+    <router-link to="/user/save">Save</router-link>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
 
 <style>
